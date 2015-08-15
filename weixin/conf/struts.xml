@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="html" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	
+	<package name="default" extends="struts-default">
+		 
+		<global-results>
+			<result name="exception">/500.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		
+	</package>
+
+	<!-- 只是执行execute方法,返回success -->
+	<package name="noMean" namespace="/noMean" extends="default">
+		<action name="noMean">
+			<result>/WEB-INF/jsp/noMean.jsp</result>
+		</action>
+	</package>
+
+	<package name="tdUser" namespace="/tdUser" extends="default">
+		<action name="tdUser" class="com.karuite.weixin.action.TdUserAction" method="tdUser">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+
+</struts>
