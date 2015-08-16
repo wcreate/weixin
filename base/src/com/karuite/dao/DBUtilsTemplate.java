@@ -21,8 +21,7 @@ import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 public class DBUtilsTemplate {
 
@@ -35,7 +34,7 @@ public class DBUtilsTemplate {
     }
 	
     private QueryRunner queryRunner;  
-    private static final Log LOG = LogFactory.getLog(DBUtilsTemplate.class);  
+    private static final Logger logger = Logger.getLogger(DBUtilsTemplate.class);
 
 	/**
 	 * 
@@ -56,7 +55,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("insert.插入记录错误：" + sql, e);
+			logger.error("insert.插入记录错误：" + sql, e);
 		}
 		return affectedRows;
 	}
@@ -90,7 +89,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("insertForKey.插入返回主键错误：" + sql, e);
+			logger.error("insertForKey.插入返回主键错误：" + sql, e);
 		} finally {
 			if (rs != null) { // 关闭记录集
 				try {
@@ -138,7 +137,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("count.统计数量错误" + sql, e);
+			logger.error("count.统计数量错误" + sql, e);
 		}
 		return (num != null) ? num.longValue() : -1;
 	}
@@ -187,7 +186,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("update.单条修改记录错误：" + sql, e);
+			logger.error("update.单条修改记录错误：" + sql, e);
 		}
 		return affectedRows;
 	}
@@ -208,7 +207,7 @@ public class DBUtilsTemplate {
 			affectedRows = queryRunner.batch(sql, params);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("update.批量修改记录错误：" + sql, e);
+			logger.error("update.批量修改记录错误：" + sql, e);
 		}
 		return affectedRows;
 	}
@@ -261,7 +260,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("map 数据分页查询错误", e);
+			logger.error("map 数据分页查询错误", e);
 		}
 		return list;
 	}
@@ -287,7 +286,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("map 数据查询错误", e);
+			logger.error("map 数据查询错误", e);
 		}
 		return list;
 	}
@@ -343,7 +342,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("Error occured while attempting to query data", e);
+			logger.error("Error occured while attempting to query data", e);
 		}
 		return list;
 	}
@@ -398,7 +397,7 @@ public class DBUtilsTemplate {
 				object = queryRunner.query(sql, new BeanHandler(entityClass), params);
 			}
 		} catch (SQLException e) {
-			LOG.error("返回一条记录错误：findFirst" + e.getMessage());
+			logger.error("返回一条记录错误：findFirst" + e.getMessage());
 			e.printStackTrace();
 		}
 		return (T) object;
@@ -449,7 +448,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("findFirst.查询一条记录错误" + sql, e);
+			logger.error("findFirst.查询一条记录错误" + sql, e);
 		}
 		return map;
 	}
@@ -504,7 +503,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("findBy。错误" + sql, e);
+			logger.error("findBy。错误" + sql, e);
 		}
 		return object;
 	}
@@ -559,7 +558,7 @@ public class DBUtilsTemplate {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			LOG.error("findBy.错误" + sql, e);
+			logger.error("findBy.错误" + sql, e);
 		}
 		return object;
 	}

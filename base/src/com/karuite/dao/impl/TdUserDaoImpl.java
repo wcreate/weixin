@@ -2,6 +2,7 @@ package com.karuite.dao.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,8 @@ import com.karuite.entity.TdUser;
 @Repository
 public class TdUserDaoImpl implements TdUserDao {
 
+	private static final Logger logger = Logger.getLogger(TdUserDaoImpl.class);
+	
 	@Autowired
     @Qualifier("dbutilsTemplate")
     private DBUtilsTemplate dbutilsTemplate;
@@ -22,7 +25,7 @@ public class TdUserDaoImpl implements TdUserDao {
 	public TdUser getByIdentity(String username) {
 		//(String sql, int page, int count, Object... params);   
 		String sql = "select * from TdUser where username = '" +username + "'";
-		
+		logger.info(sql);
 		List<TdUser> list = dbutilsTemplate.findPageT(TdUser.class, sql, 0, PageHelp.Constants_PAGESIZE);  
 		int totalRows = list.size();  
 		return (TdUser) new PageHelp(list, totalRows, 0).getItems().get(0); 

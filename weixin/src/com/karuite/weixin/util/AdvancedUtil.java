@@ -9,10 +9,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +19,11 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.karuite.weixin.util.message.resp.Article;
 import com.karuite.weixin.util.message.resp.Music;
-import com.karuite.weixin.util.object.App;
-import com.karuite.weixin.util.object.EmojiFilter;
 import com.karuite.weixin.util.pojo.SNSUserInfo;
 import com.karuite.weixin.util.pojo.WeixinGroup;
 import com.karuite.weixin.util.pojo.WeixinMedia;
@@ -46,7 +39,8 @@ import com.karuite.weixin.util.pojo.WeixinUserList;
  * @date 2013-11-9
  */
 public class AdvancedUtil {
-	private static Logger log = LoggerFactory.getLogger(AdvancedUtil.class);
+	
+	private static Logger log  = Logger.getLogger(AdvancedUtil.class);
 
 	/**
 	 * 组装文本客服消息
@@ -137,7 +131,7 @@ public class AdvancedUtil {
 	 * @return true | false
 	 */
 	public static boolean sendCustomMessage(String accessToken, String jsonMsg) {
-		log.info("消息内容：{}", jsonMsg);
+		log.info("消息内容：" + jsonMsg);
 		boolean result = false;
 		// 拼接请求地址
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN";
@@ -150,9 +144,9 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("客服消息发送成功 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("客服消息发送成功 errcode:" + errorCode + " errmsg:" + errorMsg);
 			} else {
-				log.error("客服消息发送失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("客服消息发送失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 
@@ -188,7 +182,7 @@ public class AdvancedUtil {
 				wat = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("获取网页授权凭证失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("获取网页授权凭证失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return wat;
@@ -221,7 +215,7 @@ public class AdvancedUtil {
 				wat = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("刷新网页授权凭证失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("刷新网页授权凭证失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return wat;
@@ -266,7 +260,7 @@ public class AdvancedUtil {
 				snsUserInfo = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("获取用户信息失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("获取用户信息失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return snsUserInfo;
@@ -295,12 +289,12 @@ public class AdvancedUtil {
 				weixinQRCode = new WeixinQRCode();
 				weixinQRCode.setTicket(jsonObject.getString("ticket"));
 				weixinQRCode.setExpireSeconds(jsonObject.getInt("expire_seconds"));
-				log.info("创建临时带参二维码成功 ticket:{} expire_seconds:{}", weixinQRCode.getTicket(), weixinQRCode.getExpireSeconds());
+				log.info("创建临时带参二维码成功 ticket:" + weixinQRCode.getTicket() + " expire_seconds:" + weixinQRCode.getExpireSeconds());
 			} catch (Exception e) {
 				weixinQRCode = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("创建临时带参二维码失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("创建临时带参二维码失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return weixinQRCode;
@@ -419,11 +413,11 @@ public class AdvancedUtil {
 				weixinUserInfo.setHeadImgUrl(jsonObject.getString("headimgurl"));
 			} catch (Exception e) {
 				if (0 == weixinUserInfo.getSubscribe()) {
-					log.error("用户{}已取消关注", weixinUserInfo.getOpenId());
+					log.error("用户" + weixinUserInfo.getOpenId() + "已取消关注");
 				} else {
 					int errorCode = jsonObject.getInt("errcode");
 					String errorMsg = jsonObject.getString("errmsg");
-					log.error("获取用户信息失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+					log.error("获取用户信息失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 				}
 			}
 		}
@@ -462,7 +456,7 @@ public class AdvancedUtil {
 				weixinUserList = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("获取关注者列表失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("获取关注者列表失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return weixinUserList;
@@ -489,7 +483,7 @@ public class AdvancedUtil {
 				weixinGroupList = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("查询分组失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("查询分组失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return weixinGroupList;
@@ -521,7 +515,7 @@ public class AdvancedUtil {
 				weixinGroup = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("创建分组失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("创建分组失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return weixinGroup;
@@ -550,9 +544,9 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("修改分组名成功 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("修改分组名成功 errcode:" + errorCode + " errmsg:" + errorMsg);
 			} else {
-				log.error("修改分组名失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("修改分组名失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return result;
@@ -581,9 +575,9 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("移动用户分组成功 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("移动用户分组成功 errcode:" + errorCode + " errmsg:" + errorMsg);
 			} else {
-				log.error("移动用户分组失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("移动用户分组失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return result;

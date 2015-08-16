@@ -16,8 +16,7 @@ import javax.net.ssl.TrustManager;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.karuite.weixin.util.pojo.Token;
 
@@ -28,7 +27,7 @@ import com.karuite.weixin.util.pojo.Token;
  * @date 2013-10-17
  */
 public class CommonUtil {
-	private static Logger log = LoggerFactory.getLogger(CommonUtil.class);
+	private static Logger log  = Logger.getLogger(CommonUtil.class);
 
 	// 凭证获取（GET）
 	public final static String token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
@@ -115,7 +114,7 @@ public class CommonUtil {
 			} catch (JSONException e) {
 				token = null;
 				// 获取token失败
-				log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));
+				log.error("获取token失败 errcode:" + jsonObject.getInt("errcode") + " errmsg:" + jsonObject.getString("errmsg"));
 			}
 		}
 		return token;

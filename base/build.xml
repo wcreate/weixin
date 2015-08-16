@@ -9,7 +9,7 @@
 	<!-- jar包文件名 -->
 	<property name="jarFileName" value="base.jar"/>
 	<!-- jar包存放位置 -->
-	<property name="jarDir" value="D:/weixin" />
+	<property name="jarDir" value="D:/wcreate/weixin/jars" />
 
 	<!-- 删除原有jar包,如果存放jar包的文件夹不存在,将创建新的文件夹,不会覆盖原有文件夹下的文件 -->
 	<target name="init">

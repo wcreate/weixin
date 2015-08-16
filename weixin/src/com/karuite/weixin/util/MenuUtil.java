@@ -2,8 +2,7 @@ package com.karuite.weixin.util;
 
 import net.sf.json.JSONObject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.karuite.weixin.util.menu.Menu;
 
@@ -14,7 +13,7 @@ import com.karuite.weixin.util.menu.Menu;
  * @date 2013-10-17
  */
 public class MenuUtil {
-	private static Logger log = LoggerFactory.getLogger(MenuUtil.class);
+	private static Logger log  = Logger.getLogger(MenuUtil.class);
 
 	// 菜单创建（POST）
 	public final static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
@@ -45,7 +44,7 @@ public class MenuUtil {
 				result = true;
 			} else {
 				result = false;
-				log.error("创建菜单失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("创建菜单失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 
@@ -89,7 +88,7 @@ public class MenuUtil {
 				result = true;
 			} else {
 				result = false;
-				log.error("删除菜单失败 errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("删除菜单失败 errcode:" + errorCode + " errmsg:" + errorMsg);
 			}
 		}
 		return result;
