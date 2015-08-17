@@ -11,8 +11,12 @@ import java.util.regex.Pattern;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.id.Hex;
 
+import com.google.gson.Gson;
+
 public class StringUtil {
 	
+	public static final Gson gson = new Gson(); // String str = gson.toJson(src); 可以用此方法记录日志（http入参和出参）
+
 	private static DecimalFormat decimalFormat = new DecimalFormat();
 	private static final String emailPattern = "^[\\w\\.\\_\\-]+@[\\w\\.\\_\\-]+(\\.[\\w\\-]{2,3}){1,2}$";
 	private static final String mobilePattern = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,1-9]))\\d{8}$";
