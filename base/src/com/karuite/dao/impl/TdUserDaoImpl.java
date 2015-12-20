@@ -1,6 +1,6 @@
 package com.karuite.dao.impl;
 
-import java.util.List;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.karuite.dao.DBUtilsTemplate;
-import com.karuite.dao.PageHelp;
 import com.karuite.dao.TdUserDao;
-import com.karuite.entity.TdUser;
+import com.karuite.util.StringUtil;
 
 @Repository
 public class TdUserDaoImpl implements TdUserDao {
@@ -22,13 +21,25 @@ public class TdUserDaoImpl implements TdUserDao {
     private DBUtilsTemplate dbutilsTemplate;
 	
 	@Override
-	public TdUser getByIdentity(String username) {
-		//(String sql, int page, int count, Object... params);   
-		String sql = "select * from TdUser where username = '" +username + "'";
-		logger.info(sql);
-		List<TdUser> list = dbutilsTemplate.findPageT(TdUser.class, sql, 0, PageHelp.Constants_PAGESIZE);  
-		int totalRows = list.size();  
-		return (TdUser) new PageHelp(list, totalRows, 0).getItems().get(0); 
+	public int addCompany(String company[]) {
+		
+		 String sql = "insert into tbl_companyConsult(id,companyName,mainBusiness,consultProblem,contactInformation,createDate) values(?,?,?,?,?,?)";
+		 Object params[] = {StringUtil.getStr32(), company[0], company[1], company[2], company[3], new Date()};
+		 int totalRows =  dbutilsTemplate.insert(sql, params);
+		 
+		 return totalRows;
+
+	}
+	
+	@Override
+	public int addAdvisory(String advisory[]) {
+		
+		 String sql = "insert into tbl_advisoryJoin(id,businessBackground,successfulCase,excelField,contactInformation,createDate) values(?,?,?,?,?,?)";
+		 Object params[] = {StringUtil.getStr32(), advisory[0], advisory[1], advisory[2], advisory[3], new Date()};
+		 int totalRows =  dbutilsTemplate.insert(sql, params);
+		 
+		 return totalRows;
+
 	}
 
 }

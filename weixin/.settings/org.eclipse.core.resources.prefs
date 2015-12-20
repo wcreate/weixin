@@ -1,4 +1,7 @@
-#Sun Aug 16 18:38:52 CST 2015
+#Sat Dec 19 00:43:18 CST 2015
 eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/jsp/advisorySuccess.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/companyConsult.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/companySuccess.jsp=UTF-8
 encoding//conf/log4j.properties=UTF-8
 encoding/src=UTF-8

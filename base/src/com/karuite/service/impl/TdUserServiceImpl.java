@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.karuite.dao.TdUserDao;
-import com.karuite.entity.TdUser;
+import com.karuite.entity.TdCompany;
 import com.karuite.service.TdUserService;
 
 @Service
@@ -17,8 +17,13 @@ public class TdUserServiceImpl implements TdUserService {
     private TdUserDao tduserDao;
 	
 	@Transactional(readOnly = true)
-	public TdUser getByIdentity(String username) {
-		return tduserDao.getByIdentity(username);
+	public int addCompany(String company[]) {
+		return tduserDao.addCompany(company);
+	}
+	
+	@Transactional(readOnly = true)
+	public int addAdvisory(String advisory[]) {
+		return tduserDao.addAdvisory(advisory);
 	}
 
 }

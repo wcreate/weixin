@@ -84,5 +84,4 @@ public abstract class BaseAction<T> extends ActionSupport implements
 	protected TdUser getCurrentUser() {
 		return (TdUser) ActionContext.getContext().getSession().get("user");
 	}
-
 }

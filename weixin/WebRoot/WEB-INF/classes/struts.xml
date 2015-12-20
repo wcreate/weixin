@@ -12,27 +12,25 @@
 	<constant name="struts.ui.theme" value="simple" />
 	
 	<package name="default" extends="struts-default">
-		 
-		<global-results>
-			<result name="exception">/500.jsp</result>
-		</global-results>
-
-		<global-exception-mappings>
-			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
-		</global-exception-mappings>
 		
 	</package>
 
 	<!-- 只是执行execute方法,返回success -->
-	<package name="noMean" namespace="/noMean" extends="default">
-		<action name="noMean">
-			<result>/WEB-INF/jsp/noMean.jsp</result>
+	<package name="noMean" namespace="/allCome" extends="default">
+		<action name="allCompany">
+			<result>/WEB-INF/jsp/companyConsult.jsp</result>
+		</action>
+		<action name="allAdvisory">
+			<result>/WEB-INF/jsp/advisoryJoin.jsp</result>
 		</action>
 	</package>
 
-	<package name="tdUser" namespace="/tdUser" extends="default">
-		<action name="tdUser" class="com.karuite.weixin.action.TdUserAction" method="tdUser">
-			<result>/index.jsp</result>
+	<package name="tdUser" namespace="/tblConsult" extends="default">
+		<action name="companyConsult" class="com.karuite.weixin.action.TdUserAction" method="companyConsult">
+			<result>/WEB-INF/jsp/companySuccess.jsp</result>
+		</action>
+		<action name="advisoryJoin" class="com.karuite.weixin.action.TdUserAction" method="advisoryJoin">
+			<result>/WEB-INF/jsp/advisorySuccess.jsp</result>
 		</action>
 	</package>
 
