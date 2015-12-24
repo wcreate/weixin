@@ -48,7 +48,7 @@
     </bean>
     
     <!-- dbutilsTemplate -->
-    <bean id="dbutilsTemplate" class="com.karuite.dao.DBUtilsTemplate">
+    <bean id="dbutilsTemplate" class="com.karuite.db.DBUtilsTemplate">
         <qualifier value="dbutilsTemplate"/>
         <constructor-arg ref="dataSource" />
     </bean>

@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.karuite.entity.TdUser;
-import com.karuite.service.TdUserService;
+import com.karuite.service.TdAdvisoryService;
+import com.karuite.service.TdCompanyService;
 import com.karuite.util.StringUtil;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -23,7 +22,9 @@ public abstract class BaseAction<T> extends ActionSupport implements
 	private static final long serialVersionUID = 1L;
 
 	@Resource
-	protected TdUserService tdUserService;
+	protected TdCompanyService tdCompanyService;
+	@Resource
+	protected TdAdvisoryService tdAdvisoryService;
 
 	protected T model;
 
@@ -37,7 +38,7 @@ public abstract class BaseAction<T> extends ActionSupport implements
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		
+
 	}
 
 	public static HttpServletRequest getRequest() {
@@ -81,7 +82,4 @@ public abstract class BaseAction<T> extends ActionSupport implements
 		return model;
 	}
 
-	protected TdUser getCurrentUser() {
-		return (TdUser) ActionContext.getContext().getSession().get("user");
-	}
 }

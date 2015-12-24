@@ -25,11 +25,11 @@
 		</action>
 	</package>
 
-	<package name="tdUser" namespace="/tblConsult" extends="default">
-		<action name="companyConsult" class="com.karuite.weixin.action.TdUserAction" method="companyConsult">
+	<package name="tdConsult" namespace="/tblConsult" extends="default">
+		<action name="companyConsult" class="com.karuite.weixin.action.TdCompanyAction" method="companyConsult">
 			<result>/WEB-INF/jsp/companySuccess.jsp</result>
 		</action>
-		<action name="advisoryJoin" class="com.karuite.weixin.action.TdUserAction" method="advisoryJoin">
+		<action name="advisoryJoin" class="com.karuite.weixin.action.TdAdvisoryAction" method="advisoryJoin">
 			<result>/WEB-INF/jsp/advisorySuccess.jsp</result>
 		</action>
 	</package>
