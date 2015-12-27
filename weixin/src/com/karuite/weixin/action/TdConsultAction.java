@@ -22,7 +22,7 @@ public class TdConsultAction extends BaseAction<TdConsult> {
 		List<TdConsult> tdConsult = tdConsultService.findConsult(TdConsult.class, sql);
 		
 		System.out.println(tdConsult.size());
-		logger.info("这是一条从tdUser产生的info信息,debug信息无法打印！");
+		logger.info("这是一条从tdConsult产生的info信息,debug信息无法打印！");
 		
 		return SUCCESS;
 	}
