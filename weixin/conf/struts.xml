@@ -17,6 +17,9 @@
 
 	<!-- 只是执行execute方法,返回success -->
 	<package name="noMean" namespace="/allCome" extends="default">
+		<action name="login">
+			<result>/WEB-INF/jsp/login.jsp</result>
+		</action>
 		<action name="allCompany">
 			<result>/WEB-INF/jsp/companyConsult.jsp</result>
 		</action>
@@ -26,11 +29,8 @@
 	</package>
 
 	<package name="tdConsult" namespace="/tblConsult" extends="default">
-		<action name="companyConsult" class="com.karuite.weixin.action.TdCompanyAction" method="companyConsult">
-			<result>/WEB-INF/jsp/companySuccess.jsp</result>
-		</action>
-		<action name="advisoryJoin" class="com.karuite.weixin.action.TdAdvisoryAction" method="advisoryJoin">
-			<result>/WEB-INF/jsp/advisorySuccess.jsp</result>
+		<action name="consult" class="com.karuite.weixin.action.TdConsultAction" method="consult">
+			<result>/WEB-INF/jsp/index.jsp</result>
 		</action>
 	</package>
 

@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.karuite.service.TdAdvisoryService;
-import com.karuite.service.TdCompanyService;
+import com.karuite.service.TdConsultService;
 import com.karuite.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -22,9 +21,7 @@ public abstract class BaseAction<T> extends ActionSupport implements
 	private static final long serialVersionUID = 1L;
 
 	@Resource
-	protected TdCompanyService tdCompanyService;
-	@Resource
-	protected TdAdvisoryService tdAdvisoryService;
+	protected TdConsultService tdConsultService;
 
 	protected T model;
 

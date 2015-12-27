@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
-<title>咨询师加盟</title>
+<title>登录</title>
 
 <link rel="stylesheet" type="text/css" href="${ctx }/e2e/bootstrap/css/bootstrap.min.css" />
 
@@ -56,7 +56,7 @@ html,body {
 	padding-top: 25px;
 }	
 .login-content {
-	height: 423px;
+	height: 285px;
 	width: 100%;
 	max-width:500px;
 	background-color: rgba(255, 250, 2550, .6);
@@ -109,7 +109,7 @@ html,body {
 					<div class="col-xs-12  ">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" id="businessBackground" name="businessBackground" class="form-control" placeholder="从业背景">
+							<input type="text" id="username" name="username" class="form-control" placeholder="用户名">
 						</div>
 					</div>
 				</div>
@@ -117,34 +117,26 @@ html,body {
 					<div class="col-xs-12  ">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="text" id="successfulCase" name="successfulCase" class="form-control" placeholder="成功案例">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-xs-12  ">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="text" id="excelField" name="excelField" class="form-control" placeholder="擅长领域">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-xs-12  ">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="text" id="contactInformation" name="contactInformation" class="form-control" placeholder="联系人、电话">
+							<input type="text" id="password" name="password" class="form-control" placeholder="密码">
 						</div>
 					</div>
 				</div>
 				<div class="form-group form-actions">
 					<div class="col-xs-12">
 						<button type="submit" class="btn btn-info btn-lg btn-block" onclick="return false;">
-						登录
+						登录
 						</button>
 					</div>
 				</div>
-				
+				<div class="form-group">
+					<div class="col-xs-12"> 
+					<br/>
+						<p>
+							Don't have an account yet ?&nbsp; 
+							<a href="javascript:;" id="register-btn" class="">Create an account</a>
+						</p>
+					</div>
+				</div>	
 			</form>
 			</div>
 		</div>
