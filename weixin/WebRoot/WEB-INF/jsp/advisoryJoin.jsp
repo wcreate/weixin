@@ -108,7 +108,7 @@ html,body {
 				<div class="form-group">
 					<div class="col-xs-12  ">
 						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 							<input type="text" id="businessBackground" name="businessBackground" class="form-control" placeholder="从业背景">
 						</div>
 					</div>
@@ -132,7 +132,7 @@ html,body {
 				<div class="form-group">
 					<div class="col-xs-12  ">
 						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 							<input type="text" id="contactInformation" name="contactInformation" class="form-control" placeholder="联系人、电话">
 						</div>
 					</div>
@@ -140,7 +140,7 @@ html,body {
 				<div class="form-group form-actions">
 					<div class="col-xs-12">
 						<button type="submit" class="btn btn-info btn-lg btn-block" onclick="return false;">
-						登录
+						确定
 						</button>
 					</div>
 				</div>
