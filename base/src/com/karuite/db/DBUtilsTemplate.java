@@ -616,12 +616,12 @@ public class DBUtilsTemplate {
     // 判断是否为原始类型
     private boolean isPrimitive(Class<?> cls) {  
         return cls.isPrimitive() || PrimitiveClasses.contains(cls);  
-    }  
-    // map
+    }
+    
   
-//    (String sql, int page, int count, Object... params);
-//    List list= ucd.findPage(sql, p, Constants.PAGE_SIZE, "y");  
-//    int totalRows=总记录数  
+// (String sql, int page, int count, Object... params);
+// List list= ucd.findPage(sql, p, Constants.PAGE_SIZE, "y");
+// int totalRows=总记录数
 //    return new PageHelp(list, totalRows, p);  
 //    <table width="100%" border="0" align="center" cellpadding="0"  
 //        cellspacing="0">  

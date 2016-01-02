@@ -12,7 +12,7 @@ import com.karuite.db.DBUtilsTemplate;
 import com.karuite.entity.TdConsult;
 
 @Repository
-public class TdConsultDaoImpl implements TdConsultDao {
+public class TdConsultDaoImpl extends baseDaoImpl<TdConsult> implements TdConsultDao {
 
 	private static final Logger logger = Logger.getLogger(TdConsultDaoImpl.class);
 	

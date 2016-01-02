@@ -18,8 +18,9 @@ public class TdConsultAction extends BaseAction<TdConsult> {
 	
 	public String consult() throws Exception {
 
-		String sql = "select * from consulter";
-		List<TdConsult> tdConsult = tdConsultService.findConsult(TdConsult.class, sql);
+		String sql = "select * from consulter where username = ?";
+		//(Object[]) null
+		List<TdConsult> tdConsult = tdConsultService.find(TdConsult.class, sql, new Object[]{"滕声威"});
 		
 		System.out.println(tdConsult.size());
 		logger.info("这是一条从tdConsult产生的info信息,debug信息无法打印！");
