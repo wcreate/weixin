@@ -20,11 +20,23 @@
 		<action name="login">
 			<result>/WEB-INF/jsp/login.jsp</result>
 		</action>
+		<action name="register">
+			<result>/WEB-INF/jsp/register.jsp</result>
+		</action>
 		<action name="allCompany">
 			<result>/WEB-INF/jsp/companyConsult.jsp</result>
 		</action>
 		<action name="allAdvisory">
 			<result>/WEB-INF/jsp/advisoryJoin.jsp</result>
+		</action>
+		<action name="companyEnter">
+			<result>/WEB-INF/jsp/companyEnter.jsp</result>
+		</action>
+		<action name="createGuest">
+			<result>/WEB-INF/jsp/createGuest.jsp</result>
+		</action>
+		<action name="serviceProvider">
+			<result>/WEB-INF/jsp/serviceProvider.jsp</result>
 		</action>
 	</package>
 
