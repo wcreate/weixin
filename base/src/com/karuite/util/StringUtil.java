@@ -4,7 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +16,7 @@ import org.apache.commons.id.Hex;
 import com.google.gson.Gson;
 
 public class StringUtil {
-	
+
 	public static final Gson gson = new Gson(); // String str = gson.toJson(src); 可以用此方法记录日志（http入参和出参）
 
 	private static DecimalFormat decimalFormat = new DecimalFormat();
@@ -159,18 +161,47 @@ public class StringUtil {
 		Matcher m = p.matcher(str);
 		return m.replaceAll("");
 	}
-	
+
 	/**
 	 * 32位不重复的字符串
 	 */
-    public static String getStr32() {
-        char[] str32 = Hex.encodeHex(org.apache.commons.id.uuid.UUID
-                .randomUUID().getRawBytes());
-        String new32 = new String(str32);
-    	return new32;
-    }
-	
-    public static void main(String[] args) {
-		System.out.println(getStr32());
+	public static String getStr32() {
+		char[] str32 = Hex.encodeHex(org.apache.commons.id.uuid.UUID
+				.randomUUID().getRawBytes());
+		String new32 = new String(str32);
+		return new32;
 	}
+
+	/**
+	 * 返回执行的sql
+	 */
+	public static String getPreparedSQL(String sql, Object[] params) {
+		// 1 如果没有参数，说明是不是动态SQL语句
+		int paramNum = 0;
+		if (null != params) {
+			paramNum = params.length;
+		}
+		if (1 > paramNum) {
+			return sql;
+		}
+		// 2 如果有参数，则是动态SQL语句
+		StringBuffer returnSQL = new StringBuffer();
+		String[] subSQL = sql.split("\\?");
+		for (int i = 0; i < paramNum; i++) {
+			if (params[i] instanceof Date) {
+				returnSQL.append(subSQL[i]).append("'").append(
+						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+								.format(params[i])).append("'");
+			} else {
+				returnSQL.append(subSQL[i]).append("'").append(params[i])
+						.append("'");
+			}
+		}
+
+		if (subSQL.length > params.length) {
+			returnSQL.append(subSQL[subSQL.length - 1]);
+		}
+		return returnSQL.toString();
+	}
+
 }
