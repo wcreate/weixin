@@ -6,5 +6,5 @@ import com.karuite.entity.TdConsult;
 
 public interface TdConsultDao extends baseDao<TdConsult> {
 
-	public List<TdConsult> findConsult(Class entityClass, String sql);
+	
 }

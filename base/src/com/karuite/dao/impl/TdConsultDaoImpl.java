@@ -20,10 +20,5 @@ public class TdConsultDaoImpl extends baseDaoImpl<TdConsult> implements TdConsul
     @Qualifier("dbutilsTemplate")
     private DBUtilsTemplate dbutilsTemplate;
 	
-	@Override
-	public List<TdConsult> findConsult(Class entityClass, String sql)
-	{	
-		return dbutilsTemplate.find(entityClass, sql, null); 
-	}
 
 }

@@ -16,18 +16,6 @@
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	</filter>
 	<filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>*.action</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>*.jsp</url-pattern>
-    </filter-mapping>
-	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>*.html</url-pattern>
 	</filter-mapping>
@@ -55,14 +43,4 @@
         <url-pattern>/oauthServlet</url-pattern>  
     </servlet-mapping>
     
-    <servlet>
-    <servlet-name>Log4jInit</servlet-name>
- 		<servlet-class>com.karuite.weixin.log.Log4jInit</servlet-class>
-  	    <init-param>
-   			<param-name>log4j</param-name> 
-   			<param-value>/WEB-INF/classes/log4j.properties</param-value> 
- 		 </init-param>
- 	</servlet>
-    
-	
 </web-app>

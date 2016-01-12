@@ -18,9 +18,6 @@ public class TdConsultServiceImpl extends baseServiceImpl<TdConsult> implements 
 	@Autowired
     private TdConsultDao tdConsultDao;
 	
-	public List<TdConsult> findConsult(Class entityClass, String sql) {
-		return tdConsultDao.findConsult(entityClass, sql);
-	}
 	
 
 }
