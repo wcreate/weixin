@@ -15,10 +15,8 @@ import javax.net.ssl.TrustManager;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-
-import org.apache.log4j.Logger;
-
 import com.karuite.weixin.util.pojo.Token;
+import org.apache.log4j.Logger;
 
 /**
  * 通用工具类
@@ -27,8 +25,8 @@ import com.karuite.weixin.util.pojo.Token;
  * @date 2013-10-17
  */
 public class CommonUtil {
-	private static Logger log  = Logger.getLogger(CommonUtil.class);
 
+	private static Logger log  = Logger.getLogger(CommonUtil.class);
 	// 凭证获取（GET）
 	public final static String token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
@@ -86,13 +84,18 @@ public class CommonUtil {
 			conn.disconnect();
 			jsonObject = JSONObject.fromObject(buffer.toString());
 		} catch (ConnectException ce) {
-			log.error("连接超时：{}", ce);
 		} catch (Exception e) {
-			log.error("https请求异常：{}", e);
 		}
 		return jsonObject;
 	}
 
+	/**
+	 * 获取接口访问凭证
+	 * 
+	 * @param appid 凭证
+	 * @param appsecret 密钥
+	 * @return
+	 */
 	/**
 	 * 获取接口访问凭证
 	 * 
@@ -155,10 +158,5 @@ public class CommonUtil {
 		else if ("video/mpeg4".equals(contentType))
 			fileExt = ".mp4";
 		return fileExt;
-	}
-	
-	public static void main(String[] args) {
-		String oauthUrl = "http://115.29.246.99/dexiang-weixin/oauthServlet";
-		System.out.println(urlEncodeUTF8(oauthUrl));
 	}
 }

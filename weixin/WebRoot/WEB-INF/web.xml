@@ -51,4 +51,34 @@
         <url-pattern>/oauthServlet</url-pattern>  
     </servlet-mapping>
     
+    <servlet>
+	    <servlet-name>MainServlet</servlet-name>
+	    <servlet-class>com.karuite.weixin.util.servlet.MainServlet</servlet-class>
+  	</servlet>
+  	<servlet>
+	    <servlet-name>TopayServlet</servlet-name>
+	    <servlet-class>com.karuite.weixin.util.servlet.TopayServlet</servlet-class>
+  	</servlet>
+  	<servlet>
+    	<servlet-name>NotifyServlet</servlet-name>
+    	<servlet-class>com.karuite.weixin.util.servlet.NotifyServlet</servlet-class>
+  	</servlet>
+
+  <servlet-mapping>
+    <servlet-name>NotifyServlet</servlet-name>
+    <url-pattern>/notifyServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/mainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TopayServlet</servlet-name>
+    <url-pattern>/topayServlet</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+    
 </web-app>
