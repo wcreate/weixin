@@ -12,6 +12,8 @@ import com.karuite.weixin.util.Sha1Util;
 
 public class MainServlet extends HttpServlet {
 
+	private static final long serialVersionUID = -5160788786729227817L;
+
 	/**
 	 * The doGet method of the servlet. <br>
 	 * 

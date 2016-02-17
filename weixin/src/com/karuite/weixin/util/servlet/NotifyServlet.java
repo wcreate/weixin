@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NotifyServlet extends HttpServlet {
 
+	private static final long serialVersionUID = 7455352817387712347L;
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader((ServletInputStream)request.getInputStream()));

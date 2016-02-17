@@ -19,6 +19,8 @@ import com.karuite.weixin.util.TenpayUtil;
 
 public class TopayServlet extends HttpServlet {
 
+	private static final long serialVersionUID = -1529106016294183644L;
+
 	/**
 	 * The doGet method of the servlet. <br>
 	 * 

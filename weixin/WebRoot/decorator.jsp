@@ -12,11 +12,11 @@
    	<!-- 此时表示根据设备的大小调整页面的显示宽度 -->
    	<meta name="viewport" content="width=device-width,initial-scale=1">
    	<!-- bootstrap需要jquery的支持，所以要导入jquery包 -->
-   	<script type="text/javascript" src="e2e/js/jquery.min.js"></script>
+   	<script type="text/javascript" src="${ctx }/front/js/jquery.min.js"></script>
     <!-- bootstrap需要的一些组件 *.js -->
-   	<script type="text/javascript" src="e2e/bootstrap/js/bootstrap.min.js"></script>
+   	<script type="text/javascript" src="${ctx }/front/bootstrap/js/bootstrap.min.js"></script>
    	<!-- bootstrap需要的一些基础样式 *.js -->
-   	<link rel="stylesheet" type="text/css" href="e2e/bootstrap/css/bootstrap.min.css">
+   	<link rel="stylesheet" type="text/css" href="${ctx }/front/bootstrap/css/bootstrap.min.css">
    	
    	<!-- head front -->
     <sitemesh:write property='head'/>
