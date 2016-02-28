@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemesh>  
+  <!-- 指明满足"/*"的页面，将被"/decorator.jsp"所装饰 -->
+  <mapping path="/*" decorator="/decorator.jsp"/> 
+  
+  <!-- 指明满足"/*.jsp*"的页面，将被排除，不被装饰 -->
+  <mapping path="/exclue.jsp*" exclue="true" />
+   
+</sitemesh>  
+

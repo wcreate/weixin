@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 配置扩展名为html -->
+	<constant name="struts.action.extension" value="html" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	
+	<package name="default" extends="struts-default">
+		
+	</package>
+
+	<!-- 只是执行execute方法,返回success -->
+	<package name="noMean" namespace="/allCome" extends="default">
+	
+	</package>
+
+	<package name="tdConsult" namespace="/tblConsult" extends="default">
+		<action name="consult" class="com.karuite.pc.action.TdConsultAction" method="consult">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+
+</struts>
